@@ -1,0 +1,52 @@
+#searchForm {
+    width: 500px;
+    height: 180px;
+    margin: auto;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    z-index: -1;
+    transform: translate(-50%,0%);
+}
+
+input {
+    width: 350px;
+    height: 34px;
+	border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+#search {
+    width: 100px;
+	height: 38px;
+	border-width: 0; /* 边框宽度 */
+	border-radius: 3px; /* 边框半径 */
+	background: #1E90FF;
+    position:relative;
+    left:20px;
+	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+	outline: none; /* 不显示轮廓线 */
+	font-family: Microsoft YaHei, serif;
+	color: white;
+	font-size: 15px;
+}
+
+.containerForSearch {
+	position:absolute;
+	top: 280px;
+	z-index:-1;
+	/*弹性盒子*/
+	display: -webkit-flex;
+    display: flex;
+    /*-webkit-justify-content: space-around;
+    justify-content: space-around;*/
+    -webkit-align-items: baseline;
+    align-items: baseline;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    /*-webkit-column-width: 200px;
+    -moz-column-width: 200px;
+    column-width: 200px;
+    height: 100%
+	overflow: ;*/
+}

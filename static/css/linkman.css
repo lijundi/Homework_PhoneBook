@@ -1,0 +1,47 @@
+.linkman {
+	margin: 30px;
+	border: 1px solid #ccc;
+    box-shadow: 5px 5px 5px #888888;
+    float: left;
+    width: 180px;
+    height: auto;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+.linkman:hover {
+	border: 1px solid #777;
+}
+
+.editbtn {
+	width: 85px;
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 3px 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer; 
+}
+
+.delebtn {
+	width: 85px;
+	background-color: #f44336; /* red */
+    border: none;
+    color: white;
+    padding: 3px 3px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer; 
+}
+
+table {
+	width: 180px;
+	table-layout:fixed;
+	word-wrap: break-all;
+	word-wrap: break-word;
+}

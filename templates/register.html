@@ -1,0 +1,80 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+    <script src="{% static 'js/about.js' %}"></script>
+    <title>注册页面</title>
+    <style type="text/css">
+        #register_background{
+			text-align: center;
+		    border-radius: 15px 50px;
+		    box-shadow: 5px 5px 5px #888888;
+		    background: #4EEE94;
+		    width: 500px;
+		    height: 280px;
+		    margin: auto;
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%,-50%);
+		}
+		#register_button{
+			width: 100px;
+			height: 38px;
+			border-width: 0; /* 边框宽度 */
+			border-radius: 3px; /* 边框半径 */
+			background: #1E90FF;
+			cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+			outline: none; /* 不显示轮廓线 */
+			font-family: Microsoft YaHei, serif;
+			color: white;
+			font-size: 15px;
+		}
+		body{
+			background: #FFA54F;
+		}
+	</style>
+</head>
+<body>
+    <div id="header">
+		<ul>
+			<li><a href="/login/">返回</a></li>
+			<li><a href="/register/" onclick="display_alert()">关于</a></li>
+			<li style="float: left"><div>Web版通讯录</div></li>
+		</ul>
+	</div>
+    <div id="register_background">
+		<h2>欢迎注册!</h2>
+		<form action="/register/" method="POST">
+            {% if message %}
+                <script>
+                    alert("{{ message }}");
+                </script>
+            {% endif %}
+
+            {% csrf_token %}
+			<table align="center" height="150">
+				<tr>
+					<td style="font-weight:bold">用户名</td>
+					<td width="10px"></td>
+					<td><input name="name" type="text"></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold">密码</td>
+					<td width="10px"></td>
+					<td><input name="pwd1" type="password"></td>
+				</tr>
+                <tr>
+					<td style="font-weight:bold">确认密码</td>
+					<td width="10px"></td>
+					<td><input name="pwd2" type="password"></td>
+				</tr>
+				<tr></tr>
+			</table>
+			<input id="register_button" type="submit" value="注  册">
+		</form>
+	</div>
+</body>
+</html>

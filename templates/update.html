@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更新联系人页面</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/update.css' %}">
+    <style type="text/css">
+    	body{
+			background: #FFA54F;
+		}
+    </style>
+</head>
+<body>
+    <div id="header">
+		<ul>
+			<li><a href="/linkBook/">返回</a></li>
+            <li><div>你好，{{ request.session.user_name }}</div></li>
+			<li style="float: left"><div>Web版通讯录</div></li>
+		</ul>
+	</div>
+    <div class="content">
+        <div class="img" style="background:{{ linkman.img }};width:200px;height:150px;
+                    margin-top: 40px;position: relative;left: 50%;transform: translate(-50%,0%);">
+        </div>
+		<div class="form">
+			<form action="/update/" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="lmid" value="{{ linkman.id }}">
+                <table align="center" cellspacing="10">
+                    <tr>
+                        <td style="font-weight:bold">姓名</td>
+                        <td><input type="text" name="name" value="{{ linkman.name }}" required></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">电话</td>
+                        <td><input type="text" name="phoneNumber" value="{{ linkman.phoneNumber }}" required></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">邮箱</td>
+                        <td><input type="text" name="mail" value="{{ linkman.mail }}" required></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">住址</td>
+                        <td><input type="text" name="address" value="{{ linkman.address }}" required></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">QQ</td>
+                        <td><input type="text" name="qq" value="{{ linkman.qq }}" required></td>
+                    </tr>
+			    </table>
+			    <input id="add_button" type="submit" value="提  交">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

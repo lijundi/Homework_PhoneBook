@@ -1,0 +1,19 @@
+.container {
+	position:absolute;
+	top: 80px;
+	z-index:-1;
+	/*弹性盒子*/
+	display: -webkit-flex;
+    display: flex;
+    /*-webkit-justify-content: space-around;
+    justify-content: space-around;*/
+    -webkit-align-items: baseline;
+    align-items: baseline;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    /*-webkit-column-width: 200px;
+    -moz-column-width: 200px; 
+    column-width: 200px;
+    height: 100%
+	overflow: ;*/
+}

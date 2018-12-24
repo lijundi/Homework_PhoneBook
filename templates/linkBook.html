@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录列表页面</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/container.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/linkman.css' %}">
+    <script src="{% static 'js/about.js' %}"></script>
+    <style type="text/css">
+    	body{
+			background: #FFA54F;
+		}
+    </style>
+</head>
+<body>
+    <div id="header">
+		<ul>
+			<li><a href="/logout/">退出</a></li>
+			<li><a href="/linkBook/" onclick="display_alert()">关于</a></li>
+			<li><a href="/add/">新建</a></li>
+            <li><a href="/search/">搜索</a></li>
+            <li><div>你好，{{ request.session.user_name }}</div></li>
+			<li style="float: left"><div>Web版通讯录</div></li>
+		</ul>
+	</div>
+    <div class="container">
+        {% for lm in linkMan %}
+        <div class="linkman">
+            <div style="background:{{ lm.img }};width:100%;height:100px;margin:0 auto"></div>
+			<table align="center">
+				<tr>
+					<td><button class="editbtn" onclick="window.location.href='/update/?lmid={{ lm.id }}'">编辑</button></td>
+					<td><button class="delebtn" onclick="window.location.href='/del/?lmid={{ lm.id }}'">删除</button></td>
+				</tr>
+			</table>
+			<table align="center">
+				<tr>
+					<th>姓名</th>
+				</tr>
+				<tr>
+					<td>{{ lm.name }}</td>
+				</tr>
+				<tr>
+					<th>电话</th>
+				</tr>
+				<tr>
+					<td>{{ lm.phoneNumber }}</td>
+				</tr>
+				<tr>
+					<th>邮箱</th>
+				</tr>
+				<tr>
+					<td>{{ lm.mail }}</td>
+				</tr>
+				<tr>
+					<th>住址</th>
+				</tr>
+				<tr>
+					<td>{{ lm.address }}</td>
+				</tr>
+				<tr>
+					<th>QQ</th>
+				</tr>
+				<tr>
+					<td>{{ lm.qq }}</td>
+				</tr>
+			</table>
+		</div>
+        {% endfor %}
+    </div>
+</body>
+</html>
